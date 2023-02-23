@@ -202,12 +202,23 @@
                             @permission('read-clients')
                             <li class="menu-item  {{ request()->routeIs('clients.index') ? 'menu-item-active' : '' }}"
                                 aria-haspopup="true">
-                                <a href="{{route('clients.index')}}" class="menu-link">
+                                        <a href="{{route('clients.index')}}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                         <span></span>
                                     </i>
                                     <span class="menu-text">{{__('words.show_all')}}</span>
                                 </a>
+
+                            </li>
+                            <li class="menu-item  {{ request()->routeIs('clients.index') ? 'menu-item-active' : '' }}"
+                                aria-haspopup="true">
+                                <a href="{{route('clients.index.CustomerService')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">{{__('words.show_all')}}</span>
+                                </a>
+
                             </li>
                             @endpermission
 

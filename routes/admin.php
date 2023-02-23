@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\ClientController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -25,9 +26,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             Route::get('my-profile', 'AdminUserController@profile')->name('admin.profile');
             Route::put('my-profile/{id}/update', 'AdminUserController@updateProfile')->name('admin.profile.update');
             Route::resource('settings', 'SettingController');
-
+            Route::get('ClientService', 'ClientController@CustomerService')->name('clients.index.CustomerService');
             Route::resource('clients', 'ClientController');
-
+            Route::get('clients/changeStatusToDelivered/{id}',[ClientController::class , 'changeStatusToDelivered'])->name('clients.changeStatusToDelivered');
 
 
 //            projects routes

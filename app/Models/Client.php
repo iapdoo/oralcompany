@@ -18,4 +18,8 @@ class Client extends Model
     {
         return $this->status == 1 ? __('words.active') : __('words.inactive');
     }
+    public function getActive1()
+    {
+        return $this->status == 2 ? __('words.SendToSafe') : __('words.NotSendToSafe');
+    }
 }

@@ -28,6 +28,10 @@ return [
     'all' => 'تحديد الكل',
     'add_new_record' => 'إنشاء جديد',
 
+
+    'SendToSafe'=>'تم الإرسال الي الخزنة',
+    'NotSendToSafe'=>'لم يتم الإرسال الي الخزنة',
+
     'name' => 'الإسم',
     'description' => 'الوصف',
     'sub_description' => 'وصف مختصر',

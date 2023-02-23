@@ -19,8 +19,16 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients=Client::all();
+        $clients=Client::all()->where('status',1);
         return view('admin.Client.index',compact('clients'));
+
+
+    }
+    public function CustomerService()
+    {
+        $clients=Client::all()->where('status',2);
+
+        return view('admin.Client.index2',compact('clients'));
 
 
     }
@@ -30,12 +38,7 @@ class ClientController extends Controller
         return view('admin.Client.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreClientRequest  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(StoreClientRequest $request)
     {
         Client::create($request->all());
@@ -43,48 +46,41 @@ class ClientController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
     public function show(Client $client)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Client $client)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateClientRequest  $request
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(UpdateClientRequest $request, Client $client)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Client $client)
     {
         //
+    }
+    public function changeStatusToDelivered($client_id){
+
+        try {
+            $client = Client::find($client_id);
+            if (!$client) {
+                return redirect()->back()->with(['error' => 'هذا المنتج غير موجود']);
+            }
+            $active = $client->status == 1 ? 2 : 3;
+            $client->update([$client->status=$active]);
+            return redirect()->back()->with(['success' => 'تم التحديث بنجاح']);
+
+        } catch (\Exception $exception) {
+            return redirect()->back()->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+        }
+
     }
 }
