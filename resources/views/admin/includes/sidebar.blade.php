@@ -216,7 +216,17 @@
                                     <i class="menu-bullet menu-bullet-dot">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text">{{__('words.show_all')}}</span>
+                                    <span class="menu-text">عرض خدمه العملاء</span>
+                                </a>
+
+                            </li>
+                            <li class="menu-item  {{ request()->routeIs('clients.index') ? 'menu-item-active' : '' }}"
+                                aria-haspopup="true">
+                                <a href="{{route('clients.index.safeService')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">عرض عملاء الخزنة </span>
                                 </a>
 
                             </li>

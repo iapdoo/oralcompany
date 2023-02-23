@@ -32,6 +32,14 @@ class ClientController extends Controller
 
 
     }
+    public function safeService()
+    {
+        $clients=Client::all()->where('status',3);
+
+        return view('admin.Client.index3',compact('clients'));
+
+
+    }
 
     public function create()
     {

@@ -27,6 +27,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             Route::put('my-profile/{id}/update', 'AdminUserController@updateProfile')->name('admin.profile.update');
             Route::resource('settings', 'SettingController');
             Route::get('ClientService', 'ClientController@CustomerService')->name('clients.index.CustomerService');
+            Route::get('safeService', 'ClientController@safeService')->name('clients.index.safeService');
             Route::resource('clients', 'ClientController');
             Route::get('clients/changeStatusToDelivered/{id}',[ClientController::class , 'changeStatusToDelivered'])->name('clients.changeStatusToDelivered');
 
