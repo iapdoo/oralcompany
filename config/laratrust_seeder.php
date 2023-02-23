@@ -4,7 +4,7 @@ return [
         'roles' => ['read', 'create', 'update', 'delete'],
         'admins' => ['read', 'create', 'update', 'delete','updateProfile'],
 //        'sliders' => ['read', 'create', 'update', 'delete'],
-        'clients' => ['read', 'create', 'update', 'delete'],
+        'clients' => ['read', 'create', 'update', 'delete','safeService','ClientService'],
 //        'categories' => ['read', 'create', 'update', 'delete'],
 //        'products' => ['read', 'create', 'update', 'delete'],
 //        'projects' => ['read', 'create', 'update', 'delete'],

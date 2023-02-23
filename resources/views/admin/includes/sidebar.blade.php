@@ -210,6 +210,8 @@
                                 </a>
 
                             </li>
+                            @endpermission
+                            @permission('read-CustomerService')
                             <li class="menu-item  {{ request()->routeIs('clients.index') ? 'menu-item-active' : '' }}"
                                 aria-haspopup="true">
                                 <a href="{{route('clients.index.CustomerService')}}" class="menu-link">
@@ -220,6 +222,8 @@
                                 </a>
 
                             </li>
+                            @endpermission
+                            @permission('read-safeService')
                             <li class="menu-item  {{ request()->routeIs('clients.index') ? 'menu-item-active' : '' }}"
                                 aria-haspopup="true">
                                 <a href="{{route('clients.index.safeService')}}" class="menu-link">
